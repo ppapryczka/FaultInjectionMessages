@@ -1,0 +1,27 @@
+Fault-Injection-Messages DEFINITIONS AUTOMATIC TAGS ::= 
+BEGIN
+
+  InjectionConfiguration ::= SEQUENCE {
+    logging                     BOOLEAN,
+    injectionActionsNum         INTEGER(0..4294967295),
+    registerInjectionActionsNum INTEGER(0..4294967295),
+    memoryInjectionActionsNum   INTEGER(0..4294967295)
+  }
+  
+  RegisterInjectionAction ::= SEQUENCE {
+    injectionAddress            INTEGER(0..4294967295),
+    registerIndex               INTEGER(0..15),           -- R0, R1..R12, SP, LR, PC
+    valueMask                   INTEGER(0..4294967295),
+    omitCallsNumber             INTEGER(0..4294967295),
+    maskOperation               INTEGER(0..2)             -- SET, XOR, OR
+  }
+
+  MemoryInjectionAction ::= SEQUENCE {
+    injectionAddress            INTEGER(0..4294967295),
+    memoryAddress               INTEGER(0..4294967295),
+    valueMask                   INTEGER(0..4294967295),
+    omitCallsNumber             INTEGER(0..4294967295),
+    maskOperation               INTEGER(0..2)             -- SET, XOR, OR
+  }
+
+END
