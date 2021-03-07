@@ -17,5 +17,5 @@ PYBIND11_MODULE(fault_injection_messages,m){
           "configuration"_a);
 
     m.def("decode_InjectionConfiguration", &decode_InjectionConfiguration,
-          "bytest_to_decode"_a);
+          "bytes_to_decode"_a);
 }
