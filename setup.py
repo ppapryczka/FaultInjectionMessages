@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 import os
 import sys
@@ -102,13 +103,13 @@ class CMakeBuild(build_ext):
 # The information here can also be placed in setup.cfg - better separation of
 # logic and declaration, and simpler if you include description/version in a file.
 setup(
-    name="fault_injection_messages",
-    version="1.0.0",
-    author="Patryk Pankiewicz",
-    author_email="patryk.pankiewicz369@gmail.com",
-    description="fault_injection_messages - Messages represent in ASN.1 for STM32 fault injection",
+    name="cmake_example",
+    version="0.0.1",
+    author="Dean Moldovan",
+    author_email="dean0x7d@gmail.com",
+    description="A test project using pybind11 and CMake",
     long_description="",
-    ext_modules=[CMakeExtension("fault_injection_messages")],
+    ext_modules=[CMakeExtension("cmake_example")],
     cmdclass={"build_ext": CMakeBuild},
     zip_safe=False,
 )
