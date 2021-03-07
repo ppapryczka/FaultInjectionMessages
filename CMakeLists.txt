@@ -3,22 +3,28 @@ project(FaultInjectionMessage VERSION 1.0 DESCRIPTION "Messages represent in ASN
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(FaultInjectionMessage
-        main.cpp
-        acn.c
-        asn1crt.h asn1crt.c
-        fault_injection_messages.h fault_injection_messages.c
-        real.c
-        fault_injection_messages_api.h fault_injection_messages_api.cpp python_wrapper.cpp)
+        src/main.cpp
+        src/acn.c
+        src/asn1crt.h
+        src/asn1crt.c
+        src/fault_injection_messages.h
+        src/fault_injection_messages.c
+        src/real.c
+        src/fault_injection_messages_api.h
+        src/fault_injection_messages_api.cpp)
 
 add_subdirectory(pybind11)
 
 pybind11_add_module(fault_injection_messages
-        python_wrapper.cpp
-        acn.c
-        asn1crt.h asn1crt.c
-        fault_injection_messages.h fault_injection_messages.c
-        real.c
-        fault_injection_messages_api.h fault_injection_messages_api.cpp)
+        src/python_wrapper.cpp
+        src/acn.c
+        src/asn1crt.h
+        src/asn1crt.c
+        src/fault_injection_messages.h
+        src/fault_injection_messages.c
+        src/real.c
+        src/fault_injection_messages_api.h
+        src/fault_injection_messages_api.cpp)
 
 # EXAMPLE_VERSION_INFO is defined by setup.py and passed into the C++ code as a
 # define (VERSION_INFO) here.
