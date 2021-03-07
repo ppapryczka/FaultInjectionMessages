@@ -2,16 +2,6 @@ cmake_minimum_required(VERSION 3.17)
 project(FaultInjectionMessage VERSION 1.0 DESCRIPTION "Messages represent in ASN.1 for STM32 fault injection.")
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(FaultInjectionMessage
-        src/main.cpp
-        src/acn.c
-        src/asn1crt.h
-        src/asn1crt.c
-        src/fault_injection_messages.h
-        src/fault_injection_messages.c
-        src/real.c
-        src/fault_injection_messages_api.h
-        src/fault_injection_messages_api.cpp)
 
 add_subdirectory(pybind11)
 
