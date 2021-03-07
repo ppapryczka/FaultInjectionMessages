@@ -11,11 +11,13 @@ PYBIND11_MODULE(fault_injection_messages,m){
     py::class_<InjectionConfiguration>(m, "InjectionConfiguration");
 
     m.def("get_InjectionConfiguration", &get_InjectionConfiguration,
-          "logging"_a, "register_injection_actions"_a, "memory_injection_actions"_a);
+          py::arg("logging"),
+          py::arg("register_injection_actions"),
+          py::arg("memory_injection_actions"));
 
     m.def("encode_InjectionConfiguration", &encode_InjectionConfiguration,
-          "configuration"_a);
+          py::arg("configuration"));
 
     m.def("decode_InjectionConfiguration", &decode_InjectionConfiguration,
-          "bytes_to_decode"_a);
+          py::arg("bytes_to_decode"));
 }
