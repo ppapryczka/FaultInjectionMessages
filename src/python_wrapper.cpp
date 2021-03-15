@@ -8,6 +8,12 @@ namespace py = pybind11;
 using pybind11::literals::operator""_a;
 
 PYBIND11_MODULE(fault_injection_messages,m){
+    // Mask Operation
+    py::enum_<MaskOperation>(m, "MaskOperation")
+            .value("orOperation", MaskOperation::orOperation)
+            .value("setOperation", MaskOperation::setOperation)
+            .value("xorOperation", MaskOperation::xorOperation)
+            .export_values();
 
     // Injection Configuration
 
