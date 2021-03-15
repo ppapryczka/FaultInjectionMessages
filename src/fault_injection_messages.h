@@ -11,180 +11,60 @@ extern "C" {
 
 
 
-typedef asn1SccUint MemoryInjectionAction_maskOperation;
+typedef enum {
+    setOperation = 0,
+    xorOperation = 1,
+    orOperation = 2
+} MaskOperation;
 
-#define MemoryInjectionAction_maskOperation_REQUIRED_BYTES_FOR_ENCODING       1 
-#define MemoryInjectionAction_maskOperation_REQUIRED_BITS_FOR_ENCODING        2
-#define MemoryInjectionAction_maskOperation_REQUIRED_BYTES_FOR_ACN_ENCODING   1 
-#define MemoryInjectionAction_maskOperation_REQUIRED_BITS_FOR_ACN_ENCODING    2
-#define MemoryInjectionAction_maskOperation_REQUIRED_BYTES_FOR_XER_ENCODING   95
+#define MaskOperation_REQUIRED_BYTES_FOR_ENCODING       1 
+#define MaskOperation_REQUIRED_BITS_FOR_ENCODING        2
+#define MaskOperation_REQUIRED_BYTES_FOR_ACN_ENCODING   1 
+#define MaskOperation_REQUIRED_BITS_FOR_ACN_ENCODING    2
+#define MaskOperation_REQUIRED_BYTES_FOR_XER_ENCODING   58
 
-void MemoryInjectionAction_maskOperation_Initialize(MemoryInjectionAction_maskOperation* pVal);
-flag MemoryInjectionAction_maskOperation_IsConstraintValid(const MemoryInjectionAction_maskOperation* val, int* pErrCode);
-#ifndef ERR_MemoryInjectionAction_maskOperation 
-#define ERR_MemoryInjectionAction_maskOperation		1001  /*(0 .. 2)*/
+void MaskOperation_Initialize(MaskOperation* pVal);
+flag MaskOperation_IsConstraintValid(const MaskOperation* val, int* pErrCode);
+#ifndef ERR_MaskOperation_unknown_enumeration_value 
+#define ERR_MaskOperation_unknown_enumeration_value		1002  /**/
+#endif
+#ifndef ERR_MaskOperation 
+#define ERR_MaskOperation		1001  /**/
 #endif
 
-typedef asn1SccUint MemoryInjectionAction_omitCallsNumber;
+typedef enum {
+    waitingConf = 0,
+    sendingActions = 1,
+    actionsReceived = 2
+} ExchangeStatusEnum;
 
-#define MemoryInjectionAction_omitCallsNumber_REQUIRED_BYTES_FOR_ENCODING       4 
-#define MemoryInjectionAction_omitCallsNumber_REQUIRED_BITS_FOR_ENCODING        32
-#define MemoryInjectionAction_omitCallsNumber_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
-#define MemoryInjectionAction_omitCallsNumber_REQUIRED_BITS_FOR_ACN_ENCODING    32
-#define MemoryInjectionAction_omitCallsNumber_REQUIRED_BYTES_FOR_XER_ENCODING   99
+#define ExchangeStatusEnum_REQUIRED_BYTES_FOR_ENCODING       1 
+#define ExchangeStatusEnum_REQUIRED_BITS_FOR_ENCODING        2
+#define ExchangeStatusEnum_REQUIRED_BYTES_FOR_ACN_ENCODING   1 
+#define ExchangeStatusEnum_REQUIRED_BITS_FOR_ACN_ENCODING    2
+#define ExchangeStatusEnum_REQUIRED_BYTES_FOR_XER_ENCODING   66
 
-void MemoryInjectionAction_omitCallsNumber_Initialize(MemoryInjectionAction_omitCallsNumber* pVal);
-flag MemoryInjectionAction_omitCallsNumber_IsConstraintValid(const MemoryInjectionAction_omitCallsNumber* val, int* pErrCode);
-#ifndef ERR_MemoryInjectionAction_omitCallsNumber 
-#define ERR_MemoryInjectionAction_omitCallsNumber		1002  /*(0 .. 4294967295)*/
+void ExchangeStatusEnum_Initialize(ExchangeStatusEnum* pVal);
+flag ExchangeStatusEnum_IsConstraintValid(const ExchangeStatusEnum* val, int* pErrCode);
+#ifndef ERR_ExchangeStatusEnum_unknown_enumeration_value 
+#define ERR_ExchangeStatusEnum_unknown_enumeration_value		1004  /**/
 #endif
-
-typedef asn1SccUint MemoryInjectionAction_valueMask;
-
-#define MemoryInjectionAction_valueMask_REQUIRED_BYTES_FOR_ENCODING       4 
-#define MemoryInjectionAction_valueMask_REQUIRED_BITS_FOR_ENCODING        32
-#define MemoryInjectionAction_valueMask_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
-#define MemoryInjectionAction_valueMask_REQUIRED_BITS_FOR_ACN_ENCODING    32
-#define MemoryInjectionAction_valueMask_REQUIRED_BYTES_FOR_XER_ENCODING   87
-
-void MemoryInjectionAction_valueMask_Initialize(MemoryInjectionAction_valueMask* pVal);
-flag MemoryInjectionAction_valueMask_IsConstraintValid(const MemoryInjectionAction_valueMask* val, int* pErrCode);
-#ifndef ERR_MemoryInjectionAction_valueMask 
-#define ERR_MemoryInjectionAction_valueMask		1003  /*(0 .. 4294967295)*/
-#endif
-
-typedef asn1SccUint MemoryInjectionAction_memoryAddress;
-
-#define MemoryInjectionAction_memoryAddress_REQUIRED_BYTES_FOR_ENCODING       4 
-#define MemoryInjectionAction_memoryAddress_REQUIRED_BITS_FOR_ENCODING        32
-#define MemoryInjectionAction_memoryAddress_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
-#define MemoryInjectionAction_memoryAddress_REQUIRED_BITS_FOR_ACN_ENCODING    32
-#define MemoryInjectionAction_memoryAddress_REQUIRED_BYTES_FOR_XER_ENCODING   95
-
-void MemoryInjectionAction_memoryAddress_Initialize(MemoryInjectionAction_memoryAddress* pVal);
-flag MemoryInjectionAction_memoryAddress_IsConstraintValid(const MemoryInjectionAction_memoryAddress* val, int* pErrCode);
-#ifndef ERR_MemoryInjectionAction_memoryAddress 
-#define ERR_MemoryInjectionAction_memoryAddress		1004  /*(0 .. 4294967295)*/
-#endif
-
-typedef asn1SccUint MemoryInjectionAction_injectionAddress;
-
-#define MemoryInjectionAction_injectionAddress_REQUIRED_BYTES_FOR_ENCODING       4 
-#define MemoryInjectionAction_injectionAddress_REQUIRED_BITS_FOR_ENCODING        32
-#define MemoryInjectionAction_injectionAddress_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
-#define MemoryInjectionAction_injectionAddress_REQUIRED_BITS_FOR_ACN_ENCODING    32
-#define MemoryInjectionAction_injectionAddress_REQUIRED_BYTES_FOR_XER_ENCODING   101
-
-void MemoryInjectionAction_injectionAddress_Initialize(MemoryInjectionAction_injectionAddress* pVal);
-flag MemoryInjectionAction_injectionAddress_IsConstraintValid(const MemoryInjectionAction_injectionAddress* val, int* pErrCode);
-#ifndef ERR_MemoryInjectionAction_injectionAddress 
-#define ERR_MemoryInjectionAction_injectionAddress		1005  /*(0 .. 4294967295)*/
+#ifndef ERR_ExchangeStatusEnum 
+#define ERR_ExchangeStatusEnum		1003  /**/
 #endif
 
 typedef struct {
-    MemoryInjectionAction_injectionAddress injectionAddress;
-    MemoryInjectionAction_memoryAddress memoryAddress;
-    MemoryInjectionAction_valueMask valueMask;
-    MemoryInjectionAction_omitCallsNumber omitCallsNumber;
-    MemoryInjectionAction_maskOperation maskOperation;
-} MemoryInjectionAction;
+    ExchangeStatusEnum status;
+} ExchangesStatus;
 
-#define MemoryInjectionAction_REQUIRED_BYTES_FOR_ENCODING       17 
-#define MemoryInjectionAction_REQUIRED_BITS_FOR_ENCODING        130
-#define MemoryInjectionAction_REQUIRED_BYTES_FOR_ACN_ENCODING   17 
-#define MemoryInjectionAction_REQUIRED_BITS_FOR_ACN_ENCODING    130
-#define MemoryInjectionAction_REQUIRED_BYTES_FOR_XER_ENCODING   304
+#define ExchangesStatus_REQUIRED_BYTES_FOR_ENCODING       1 
+#define ExchangesStatus_REQUIRED_BITS_FOR_ENCODING        2
+#define ExchangesStatus_REQUIRED_BYTES_FOR_ACN_ENCODING   1 
+#define ExchangesStatus_REQUIRED_BITS_FOR_ACN_ENCODING    2
+#define ExchangesStatus_REQUIRED_BYTES_FOR_XER_ENCODING   77
 
-void MemoryInjectionAction_Initialize(MemoryInjectionAction* pVal);
-flag MemoryInjectionAction_IsConstraintValid(const MemoryInjectionAction* val, int* pErrCode);
-
-
-typedef asn1SccUint RegisterInjectionAction_maskOperation;
-
-#define RegisterInjectionAction_maskOperation_REQUIRED_BYTES_FOR_ENCODING       1 
-#define RegisterInjectionAction_maskOperation_REQUIRED_BITS_FOR_ENCODING        2
-#define RegisterInjectionAction_maskOperation_REQUIRED_BYTES_FOR_ACN_ENCODING   1 
-#define RegisterInjectionAction_maskOperation_REQUIRED_BITS_FOR_ACN_ENCODING    2
-#define RegisterInjectionAction_maskOperation_REQUIRED_BYTES_FOR_XER_ENCODING   99
-
-void RegisterInjectionAction_maskOperation_Initialize(RegisterInjectionAction_maskOperation* pVal);
-flag RegisterInjectionAction_maskOperation_IsConstraintValid(const RegisterInjectionAction_maskOperation* val, int* pErrCode);
-#ifndef ERR_RegisterInjectionAction_maskOperation 
-#define ERR_RegisterInjectionAction_maskOperation		1006  /*(0 .. 2)*/
-#endif
-
-typedef asn1SccUint RegisterInjectionAction_omitCallsNumber;
-
-#define RegisterInjectionAction_omitCallsNumber_REQUIRED_BYTES_FOR_ENCODING       4 
-#define RegisterInjectionAction_omitCallsNumber_REQUIRED_BITS_FOR_ENCODING        32
-#define RegisterInjectionAction_omitCallsNumber_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
-#define RegisterInjectionAction_omitCallsNumber_REQUIRED_BITS_FOR_ACN_ENCODING    32
-#define RegisterInjectionAction_omitCallsNumber_REQUIRED_BYTES_FOR_XER_ENCODING   103
-
-void RegisterInjectionAction_omitCallsNumber_Initialize(RegisterInjectionAction_omitCallsNumber* pVal);
-flag RegisterInjectionAction_omitCallsNumber_IsConstraintValid(const RegisterInjectionAction_omitCallsNumber* val, int* pErrCode);
-#ifndef ERR_RegisterInjectionAction_omitCallsNumber 
-#define ERR_RegisterInjectionAction_omitCallsNumber		1007  /*(0 .. 4294967295)*/
-#endif
-
-typedef asn1SccUint RegisterInjectionAction_valueMask;
-
-#define RegisterInjectionAction_valueMask_REQUIRED_BYTES_FOR_ENCODING       4 
-#define RegisterInjectionAction_valueMask_REQUIRED_BITS_FOR_ENCODING        32
-#define RegisterInjectionAction_valueMask_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
-#define RegisterInjectionAction_valueMask_REQUIRED_BITS_FOR_ACN_ENCODING    32
-#define RegisterInjectionAction_valueMask_REQUIRED_BYTES_FOR_XER_ENCODING   91
-
-void RegisterInjectionAction_valueMask_Initialize(RegisterInjectionAction_valueMask* pVal);
-flag RegisterInjectionAction_valueMask_IsConstraintValid(const RegisterInjectionAction_valueMask* val, int* pErrCode);
-#ifndef ERR_RegisterInjectionAction_valueMask 
-#define ERR_RegisterInjectionAction_valueMask		1008  /*(0 .. 4294967295)*/
-#endif
-
-typedef asn1SccUint RegisterInjectionAction_registerIndex;
-
-#define RegisterInjectionAction_registerIndex_REQUIRED_BYTES_FOR_ENCODING       1 
-#define RegisterInjectionAction_registerIndex_REQUIRED_BITS_FOR_ENCODING        4
-#define RegisterInjectionAction_registerIndex_REQUIRED_BYTES_FOR_ACN_ENCODING   1 
-#define RegisterInjectionAction_registerIndex_REQUIRED_BITS_FOR_ACN_ENCODING    4
-#define RegisterInjectionAction_registerIndex_REQUIRED_BYTES_FOR_XER_ENCODING   99
-
-void RegisterInjectionAction_registerIndex_Initialize(RegisterInjectionAction_registerIndex* pVal);
-flag RegisterInjectionAction_registerIndex_IsConstraintValid(const RegisterInjectionAction_registerIndex* val, int* pErrCode);
-#ifndef ERR_RegisterInjectionAction_registerIndex 
-#define ERR_RegisterInjectionAction_registerIndex		1009  /*(0 .. 15)*/
-#endif
-
-typedef asn1SccUint RegisterInjectionAction_injectionAddress;
-
-#define RegisterInjectionAction_injectionAddress_REQUIRED_BYTES_FOR_ENCODING       4 
-#define RegisterInjectionAction_injectionAddress_REQUIRED_BITS_FOR_ENCODING        32
-#define RegisterInjectionAction_injectionAddress_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
-#define RegisterInjectionAction_injectionAddress_REQUIRED_BITS_FOR_ACN_ENCODING    32
-#define RegisterInjectionAction_injectionAddress_REQUIRED_BYTES_FOR_XER_ENCODING   105
-
-void RegisterInjectionAction_injectionAddress_Initialize(RegisterInjectionAction_injectionAddress* pVal);
-flag RegisterInjectionAction_injectionAddress_IsConstraintValid(const RegisterInjectionAction_injectionAddress* val, int* pErrCode);
-#ifndef ERR_RegisterInjectionAction_injectionAddress 
-#define ERR_RegisterInjectionAction_injectionAddress		1010  /*(0 .. 4294967295)*/
-#endif
-
-typedef struct {
-    RegisterInjectionAction_injectionAddress injectionAddress;
-    RegisterInjectionAction_registerIndex registerIndex;
-    RegisterInjectionAction_valueMask valueMask;
-    RegisterInjectionAction_omitCallsNumber omitCallsNumber;
-    RegisterInjectionAction_maskOperation maskOperation;
-} RegisterInjectionAction;
-
-#define RegisterInjectionAction_REQUIRED_BYTES_FOR_ENCODING       13 
-#define RegisterInjectionAction_REQUIRED_BITS_FOR_ENCODING        102
-#define RegisterInjectionAction_REQUIRED_BYTES_FOR_ACN_ENCODING   13 
-#define RegisterInjectionAction_REQUIRED_BITS_FOR_ACN_ENCODING    102
-#define RegisterInjectionAction_REQUIRED_BYTES_FOR_XER_ENCODING   308
-
-void RegisterInjectionAction_Initialize(RegisterInjectionAction* pVal);
-flag RegisterInjectionAction_IsConstraintValid(const RegisterInjectionAction* val, int* pErrCode);
+void ExchangesStatus_Initialize(ExchangesStatus* pVal);
+flag ExchangesStatus_IsConstraintValid(const ExchangesStatus* val, int* pErrCode);
 
 
 typedef asn1SccUint InjectionConfiguration_memoryInjectionActionsNum;
@@ -198,7 +78,7 @@ typedef asn1SccUint InjectionConfiguration_memoryInjectionActionsNum;
 void InjectionConfiguration_memoryInjectionActionsNum_Initialize(InjectionConfiguration_memoryInjectionActionsNum* pVal);
 flag InjectionConfiguration_memoryInjectionActionsNum_IsConstraintValid(const InjectionConfiguration_memoryInjectionActionsNum* val, int* pErrCode);
 #ifndef ERR_InjectionConfiguration_memoryInjectionActionsNum 
-#define ERR_InjectionConfiguration_memoryInjectionActionsNum		1011  /*(0 .. 4294967295)*/
+#define ERR_InjectionConfiguration_memoryInjectionActionsNum		1005  /*(0 .. 4294967295)*/
 #endif
 
 typedef asn1SccUint InjectionConfiguration_registerInjectionActionsNum;
@@ -212,7 +92,7 @@ typedef asn1SccUint InjectionConfiguration_registerInjectionActionsNum;
 void InjectionConfiguration_registerInjectionActionsNum_Initialize(InjectionConfiguration_registerInjectionActionsNum* pVal);
 flag InjectionConfiguration_registerInjectionActionsNum_IsConstraintValid(const InjectionConfiguration_registerInjectionActionsNum* val, int* pErrCode);
 #ifndef ERR_InjectionConfiguration_registerInjectionActionsNum 
-#define ERR_InjectionConfiguration_registerInjectionActionsNum		1012  /*(0 .. 4294967295)*/
+#define ERR_InjectionConfiguration_registerInjectionActionsNum		1006  /*(0 .. 4294967295)*/
 #endif
 
 typedef asn1SccUint InjectionConfiguration_injectionActionsNum;
@@ -226,7 +106,7 @@ typedef asn1SccUint InjectionConfiguration_injectionActionsNum;
 void InjectionConfiguration_injectionActionsNum_Initialize(InjectionConfiguration_injectionActionsNum* pVal);
 flag InjectionConfiguration_injectionActionsNum_IsConstraintValid(const InjectionConfiguration_injectionActionsNum* val, int* pErrCode);
 #ifndef ERR_InjectionConfiguration_injectionActionsNum 
-#define ERR_InjectionConfiguration_injectionActionsNum		1013  /*(0 .. 4294967295)*/
+#define ERR_InjectionConfiguration_injectionActionsNum		1007  /*(0 .. 4294967295)*/
 #endif
 
 typedef struct {
@@ -246,6 +126,207 @@ void InjectionConfiguration_Initialize(InjectionConfiguration* pVal);
 flag InjectionConfiguration_IsConstraintValid(const InjectionConfiguration* val, int* pErrCode);
 
 
+typedef asn1SccUint InjectionAction_injectionActionIndex;
+
+#define InjectionAction_injectionActionIndex_REQUIRED_BYTES_FOR_ENCODING       4 
+#define InjectionAction_injectionActionIndex_REQUIRED_BITS_FOR_ENCODING        32
+#define InjectionAction_injectionActionIndex_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
+#define InjectionAction_injectionActionIndex_REQUIRED_BITS_FOR_ACN_ENCODING    32
+#define InjectionAction_injectionActionIndex_REQUIRED_BYTES_FOR_XER_ENCODING   97
+
+void InjectionAction_injectionActionIndex_Initialize(InjectionAction_injectionActionIndex* pVal);
+flag InjectionAction_injectionActionIndex_IsConstraintValid(const InjectionAction_injectionActionIndex* val, int* pErrCode);
+#ifndef ERR_InjectionAction_injectionActionIndex 
+#define ERR_InjectionAction_injectionActionIndex		1008  /*(0 .. 4294967295)*/
+#endif
+
+typedef asn1SccUint MemoryInjectionAction_omitCallsNumber;
+
+#define MemoryInjectionAction_omitCallsNumber_REQUIRED_BYTES_FOR_ENCODING       4 
+#define MemoryInjectionAction_omitCallsNumber_REQUIRED_BITS_FOR_ENCODING        32
+#define MemoryInjectionAction_omitCallsNumber_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
+#define MemoryInjectionAction_omitCallsNumber_REQUIRED_BITS_FOR_ACN_ENCODING    32
+#define MemoryInjectionAction_omitCallsNumber_REQUIRED_BYTES_FOR_XER_ENCODING   99
+
+void MemoryInjectionAction_omitCallsNumber_Initialize(MemoryInjectionAction_omitCallsNumber* pVal);
+flag MemoryInjectionAction_omitCallsNumber_IsConstraintValid(const MemoryInjectionAction_omitCallsNumber* val, int* pErrCode);
+#ifndef ERR_MemoryInjectionAction_omitCallsNumber 
+#define ERR_MemoryInjectionAction_omitCallsNumber		1009  /*(0 .. 4294967295)*/
+#endif
+
+typedef asn1SccUint MemoryInjectionAction_valueMask;
+
+#define MemoryInjectionAction_valueMask_REQUIRED_BYTES_FOR_ENCODING       4 
+#define MemoryInjectionAction_valueMask_REQUIRED_BITS_FOR_ENCODING        32
+#define MemoryInjectionAction_valueMask_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
+#define MemoryInjectionAction_valueMask_REQUIRED_BITS_FOR_ACN_ENCODING    32
+#define MemoryInjectionAction_valueMask_REQUIRED_BYTES_FOR_XER_ENCODING   87
+
+void MemoryInjectionAction_valueMask_Initialize(MemoryInjectionAction_valueMask* pVal);
+flag MemoryInjectionAction_valueMask_IsConstraintValid(const MemoryInjectionAction_valueMask* val, int* pErrCode);
+#ifndef ERR_MemoryInjectionAction_valueMask 
+#define ERR_MemoryInjectionAction_valueMask		1010  /*(0 .. 4294967295)*/
+#endif
+
+typedef asn1SccUint MemoryInjectionAction_memoryAddress;
+
+#define MemoryInjectionAction_memoryAddress_REQUIRED_BYTES_FOR_ENCODING       4 
+#define MemoryInjectionAction_memoryAddress_REQUIRED_BITS_FOR_ENCODING        32
+#define MemoryInjectionAction_memoryAddress_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
+#define MemoryInjectionAction_memoryAddress_REQUIRED_BITS_FOR_ACN_ENCODING    32
+#define MemoryInjectionAction_memoryAddress_REQUIRED_BYTES_FOR_XER_ENCODING   95
+
+void MemoryInjectionAction_memoryAddress_Initialize(MemoryInjectionAction_memoryAddress* pVal);
+flag MemoryInjectionAction_memoryAddress_IsConstraintValid(const MemoryInjectionAction_memoryAddress* val, int* pErrCode);
+#ifndef ERR_MemoryInjectionAction_memoryAddress 
+#define ERR_MemoryInjectionAction_memoryAddress		1011  /*(0 .. 4294967295)*/
+#endif
+
+typedef asn1SccUint MemoryInjectionAction_injectionAddress;
+
+#define MemoryInjectionAction_injectionAddress_REQUIRED_BYTES_FOR_ENCODING       4 
+#define MemoryInjectionAction_injectionAddress_REQUIRED_BITS_FOR_ENCODING        32
+#define MemoryInjectionAction_injectionAddress_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
+#define MemoryInjectionAction_injectionAddress_REQUIRED_BITS_FOR_ACN_ENCODING    32
+#define MemoryInjectionAction_injectionAddress_REQUIRED_BYTES_FOR_XER_ENCODING   101
+
+void MemoryInjectionAction_injectionAddress_Initialize(MemoryInjectionAction_injectionAddress* pVal);
+flag MemoryInjectionAction_injectionAddress_IsConstraintValid(const MemoryInjectionAction_injectionAddress* val, int* pErrCode);
+#ifndef ERR_MemoryInjectionAction_injectionAddress 
+#define ERR_MemoryInjectionAction_injectionAddress		1012  /*(0 .. 4294967295)*/
+#endif
+
+typedef struct {
+    MemoryInjectionAction_injectionAddress injectionAddress;
+    MemoryInjectionAction_memoryAddress memoryAddress;
+    MemoryInjectionAction_valueMask valueMask;
+    MemoryInjectionAction_omitCallsNumber omitCallsNumber;
+    MaskOperation maskOperation;
+} MemoryInjectionAction;
+
+#define MemoryInjectionAction_REQUIRED_BYTES_FOR_ENCODING       17 
+#define MemoryInjectionAction_REQUIRED_BITS_FOR_ENCODING        130
+#define MemoryInjectionAction_REQUIRED_BYTES_FOR_ACN_ENCODING   17 
+#define MemoryInjectionAction_REQUIRED_BITS_FOR_ACN_ENCODING    130
+#define MemoryInjectionAction_REQUIRED_BYTES_FOR_XER_ENCODING   311
+
+void MemoryInjectionAction_Initialize(MemoryInjectionAction* pVal);
+flag MemoryInjectionAction_IsConstraintValid(const MemoryInjectionAction* val, int* pErrCode);
+
+
+typedef asn1SccUint RegisterInjectionAction_omitCallsNumber;
+
+#define RegisterInjectionAction_omitCallsNumber_REQUIRED_BYTES_FOR_ENCODING       4 
+#define RegisterInjectionAction_omitCallsNumber_REQUIRED_BITS_FOR_ENCODING        32
+#define RegisterInjectionAction_omitCallsNumber_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
+#define RegisterInjectionAction_omitCallsNumber_REQUIRED_BITS_FOR_ACN_ENCODING    32
+#define RegisterInjectionAction_omitCallsNumber_REQUIRED_BYTES_FOR_XER_ENCODING   103
+
+void RegisterInjectionAction_omitCallsNumber_Initialize(RegisterInjectionAction_omitCallsNumber* pVal);
+flag RegisterInjectionAction_omitCallsNumber_IsConstraintValid(const RegisterInjectionAction_omitCallsNumber* val, int* pErrCode);
+#ifndef ERR_RegisterInjectionAction_omitCallsNumber 
+#define ERR_RegisterInjectionAction_omitCallsNumber		1013  /*(0 .. 4294967295)*/
+#endif
+
+typedef asn1SccUint RegisterInjectionAction_valueMask;
+
+#define RegisterInjectionAction_valueMask_REQUIRED_BYTES_FOR_ENCODING       4 
+#define RegisterInjectionAction_valueMask_REQUIRED_BITS_FOR_ENCODING        32
+#define RegisterInjectionAction_valueMask_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
+#define RegisterInjectionAction_valueMask_REQUIRED_BITS_FOR_ACN_ENCODING    32
+#define RegisterInjectionAction_valueMask_REQUIRED_BYTES_FOR_XER_ENCODING   91
+
+void RegisterInjectionAction_valueMask_Initialize(RegisterInjectionAction_valueMask* pVal);
+flag RegisterInjectionAction_valueMask_IsConstraintValid(const RegisterInjectionAction_valueMask* val, int* pErrCode);
+#ifndef ERR_RegisterInjectionAction_valueMask 
+#define ERR_RegisterInjectionAction_valueMask		1014  /*(0 .. 4294967295)*/
+#endif
+
+typedef asn1SccUint RegisterInjectionAction_registerIndex;
+
+#define RegisterInjectionAction_registerIndex_REQUIRED_BYTES_FOR_ENCODING       1 
+#define RegisterInjectionAction_registerIndex_REQUIRED_BITS_FOR_ENCODING        4
+#define RegisterInjectionAction_registerIndex_REQUIRED_BYTES_FOR_ACN_ENCODING   1 
+#define RegisterInjectionAction_registerIndex_REQUIRED_BITS_FOR_ACN_ENCODING    4
+#define RegisterInjectionAction_registerIndex_REQUIRED_BYTES_FOR_XER_ENCODING   99
+
+void RegisterInjectionAction_registerIndex_Initialize(RegisterInjectionAction_registerIndex* pVal);
+flag RegisterInjectionAction_registerIndex_IsConstraintValid(const RegisterInjectionAction_registerIndex* val, int* pErrCode);
+#ifndef ERR_RegisterInjectionAction_registerIndex 
+#define ERR_RegisterInjectionAction_registerIndex		1015  /*(0 .. 15)*/
+#endif
+
+typedef asn1SccUint RegisterInjectionAction_injectionAddress;
+
+#define RegisterInjectionAction_injectionAddress_REQUIRED_BYTES_FOR_ENCODING       4 
+#define RegisterInjectionAction_injectionAddress_REQUIRED_BITS_FOR_ENCODING        32
+#define RegisterInjectionAction_injectionAddress_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
+#define RegisterInjectionAction_injectionAddress_REQUIRED_BITS_FOR_ACN_ENCODING    32
+#define RegisterInjectionAction_injectionAddress_REQUIRED_BYTES_FOR_XER_ENCODING   105
+
+void RegisterInjectionAction_injectionAddress_Initialize(RegisterInjectionAction_injectionAddress* pVal);
+flag RegisterInjectionAction_injectionAddress_IsConstraintValid(const RegisterInjectionAction_injectionAddress* val, int* pErrCode);
+#ifndef ERR_RegisterInjectionAction_injectionAddress 
+#define ERR_RegisterInjectionAction_injectionAddress		1016  /*(0 .. 4294967295)*/
+#endif
+
+typedef struct {
+    RegisterInjectionAction_injectionAddress injectionAddress;
+    RegisterInjectionAction_registerIndex registerIndex;
+    RegisterInjectionAction_valueMask valueMask;
+    RegisterInjectionAction_omitCallsNumber omitCallsNumber;
+    MaskOperation maskOperation;
+} RegisterInjectionAction;
+
+#define RegisterInjectionAction_REQUIRED_BYTES_FOR_ENCODING       13 
+#define RegisterInjectionAction_REQUIRED_BITS_FOR_ENCODING        102
+#define RegisterInjectionAction_REQUIRED_BYTES_FOR_ACN_ENCODING   13 
+#define RegisterInjectionAction_REQUIRED_BITS_FOR_ACN_ENCODING    102
+#define RegisterInjectionAction_REQUIRED_BYTES_FOR_XER_ENCODING   315
+
+void RegisterInjectionAction_Initialize(RegisterInjectionAction* pVal);
+flag RegisterInjectionAction_IsConstraintValid(const RegisterInjectionAction* val, int* pErrCode);
+
+
+typedef struct {
+    enum {
+        InjectionActionChoice_NONE,
+        registerAction_PRESENT,
+        memoryAction_PRESENT 
+    } kind;
+    union {
+        RegisterInjectionAction registerAction;
+        MemoryInjectionAction memoryAction;
+    } u; 
+} InjectionActionChoice;
+
+#define InjectionActionChoice_REQUIRED_BYTES_FOR_ENCODING       17 
+#define InjectionActionChoice_REQUIRED_BITS_FOR_ENCODING        132
+#define InjectionActionChoice_REQUIRED_BYTES_FOR_ACN_ENCODING   17 
+#define InjectionActionChoice_REQUIRED_BITS_FOR_ACN_ENCODING    132
+#define InjectionActionChoice_REQUIRED_BYTES_FOR_XER_ENCODING   344
+
+void InjectionActionChoice_Initialize(InjectionActionChoice* pVal);
+flag InjectionActionChoice_IsConstraintValid(const InjectionActionChoice* val, int* pErrCode);
+#ifndef ERR_InjectionActionChoice_unknown_choice_index 
+#define ERR_InjectionActionChoice_unknown_choice_index		1017  /**/
+#endif
+
+typedef struct {
+    InjectionActionChoice injectionAction;
+    InjectionAction_injectionActionIndex injectionActionIndex;
+} InjectionAction;
+
+#define InjectionAction_REQUIRED_BYTES_FOR_ENCODING       21 
+#define InjectionAction_REQUIRED_BITS_FOR_ENCODING        164
+#define InjectionAction_REQUIRED_BYTES_FOR_ACN_ENCODING   21 
+#define InjectionAction_REQUIRED_BITS_FOR_ACN_ENCODING    164
+#define InjectionAction_REQUIRED_BYTES_FOR_XER_ENCODING   432
+
+void InjectionAction_Initialize(InjectionAction* pVal);
+flag InjectionAction_IsConstraintValid(const InjectionAction* val, int* pErrCode);
+
+
  
 
 /* ================= Encoding/Decoding function prototypes =================
@@ -253,8 +334,22 @@ flag InjectionConfiguration_IsConstraintValid(const InjectionConfiguration* val,
  * have been declared first, in case of parameterized ACN encodings
  * ========================================================================= */
 
-flag MemoryInjectionAction_maskOperation_Encode(const MemoryInjectionAction_maskOperation* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
-flag MemoryInjectionAction_maskOperation_Decode(MemoryInjectionAction_maskOperation* pVal, BitStream* pBitStrm, int* pErrCode);
+flag MaskOperation_Encode(const MaskOperation* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+flag MaskOperation_Decode(MaskOperation* pVal, BitStream* pBitStrm, int* pErrCode);
+flag ExchangeStatusEnum_Encode(const ExchangeStatusEnum* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+flag ExchangeStatusEnum_Decode(ExchangeStatusEnum* pVal, BitStream* pBitStrm, int* pErrCode);
+flag ExchangesStatus_Encode(const ExchangesStatus* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+flag ExchangesStatus_Decode(ExchangesStatus* pVal, BitStream* pBitStrm, int* pErrCode);
+flag InjectionConfiguration_memoryInjectionActionsNum_Encode(const InjectionConfiguration_memoryInjectionActionsNum* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+flag InjectionConfiguration_memoryInjectionActionsNum_Decode(InjectionConfiguration_memoryInjectionActionsNum* pVal, BitStream* pBitStrm, int* pErrCode);
+flag InjectionConfiguration_registerInjectionActionsNum_Encode(const InjectionConfiguration_registerInjectionActionsNum* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+flag InjectionConfiguration_registerInjectionActionsNum_Decode(InjectionConfiguration_registerInjectionActionsNum* pVal, BitStream* pBitStrm, int* pErrCode);
+flag InjectionConfiguration_injectionActionsNum_Encode(const InjectionConfiguration_injectionActionsNum* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+flag InjectionConfiguration_injectionActionsNum_Decode(InjectionConfiguration_injectionActionsNum* pVal, BitStream* pBitStrm, int* pErrCode);
+flag InjectionConfiguration_Encode(const InjectionConfiguration* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+flag InjectionConfiguration_Decode(InjectionConfiguration* pVal, BitStream* pBitStrm, int* pErrCode);
+flag InjectionAction_injectionActionIndex_Encode(const InjectionAction_injectionActionIndex* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+flag InjectionAction_injectionActionIndex_Decode(InjectionAction_injectionActionIndex* pVal, BitStream* pBitStrm, int* pErrCode);
 flag MemoryInjectionAction_omitCallsNumber_Encode(const MemoryInjectionAction_omitCallsNumber* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 flag MemoryInjectionAction_omitCallsNumber_Decode(MemoryInjectionAction_omitCallsNumber* pVal, BitStream* pBitStrm, int* pErrCode);
 flag MemoryInjectionAction_valueMask_Encode(const MemoryInjectionAction_valueMask* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
@@ -265,8 +360,6 @@ flag MemoryInjectionAction_injectionAddress_Encode(const MemoryInjectionAction_i
 flag MemoryInjectionAction_injectionAddress_Decode(MemoryInjectionAction_injectionAddress* pVal, BitStream* pBitStrm, int* pErrCode);
 flag MemoryInjectionAction_Encode(const MemoryInjectionAction* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 flag MemoryInjectionAction_Decode(MemoryInjectionAction* pVal, BitStream* pBitStrm, int* pErrCode);
-flag RegisterInjectionAction_maskOperation_Encode(const RegisterInjectionAction_maskOperation* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
-flag RegisterInjectionAction_maskOperation_Decode(RegisterInjectionAction_maskOperation* pVal, BitStream* pBitStrm, int* pErrCode);
 flag RegisterInjectionAction_omitCallsNumber_Encode(const RegisterInjectionAction_omitCallsNumber* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 flag RegisterInjectionAction_omitCallsNumber_Decode(RegisterInjectionAction_omitCallsNumber* pVal, BitStream* pBitStrm, int* pErrCode);
 flag RegisterInjectionAction_valueMask_Encode(const RegisterInjectionAction_valueMask* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
@@ -277,18 +370,22 @@ flag RegisterInjectionAction_injectionAddress_Encode(const RegisterInjectionActi
 flag RegisterInjectionAction_injectionAddress_Decode(RegisterInjectionAction_injectionAddress* pVal, BitStream* pBitStrm, int* pErrCode);
 flag RegisterInjectionAction_Encode(const RegisterInjectionAction* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 flag RegisterInjectionAction_Decode(RegisterInjectionAction* pVal, BitStream* pBitStrm, int* pErrCode);
-flag InjectionConfiguration_memoryInjectionActionsNum_Encode(const InjectionConfiguration_memoryInjectionActionsNum* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
-flag InjectionConfiguration_memoryInjectionActionsNum_Decode(InjectionConfiguration_memoryInjectionActionsNum* pVal, BitStream* pBitStrm, int* pErrCode);
-flag InjectionConfiguration_registerInjectionActionsNum_Encode(const InjectionConfiguration_registerInjectionActionsNum* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
-flag InjectionConfiguration_registerInjectionActionsNum_Decode(InjectionConfiguration_registerInjectionActionsNum* pVal, BitStream* pBitStrm, int* pErrCode);
-flag InjectionConfiguration_injectionActionsNum_Encode(const InjectionConfiguration_injectionActionsNum* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
-flag InjectionConfiguration_injectionActionsNum_Decode(InjectionConfiguration_injectionActionsNum* pVal, BitStream* pBitStrm, int* pErrCode);
-flag InjectionConfiguration_Encode(const InjectionConfiguration* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
-flag InjectionConfiguration_Decode(InjectionConfiguration* pVal, BitStream* pBitStrm, int* pErrCode); 
+flag InjectionActionChoice_Encode(const InjectionActionChoice* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+flag InjectionActionChoice_Decode(InjectionActionChoice* pVal, BitStream* pBitStrm, int* pErrCode);
+flag InjectionAction_Encode(const InjectionAction* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+flag InjectionAction_Decode(InjectionAction* pVal, BitStream* pBitStrm, int* pErrCode); 
 
 
 #ifdef  __cplusplus
 }
+#define ENUM_setOperation	setOperation
+#define ENUM_xorOperation	xorOperation
+#define ENUM_orOperation	orOperation
+#define ENUM_waitingConf	waitingConf
+#define ENUM_sendingActions	sendingActions
+#define ENUM_actionsReceived	actionsReceived
+#define CHOICE_registerAction_PRESENT	InjectionActionChoice::registerAction_PRESENT
+#define CHOICE_memoryAction_PRESENT	InjectionActionChoice::memoryAction_PRESENT
 
 #endif
 
