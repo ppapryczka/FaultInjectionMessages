@@ -9,6 +9,7 @@ using pybind11::literals::operator""_a;
 
 PYBIND11_MODULE(fault_injection_messages,m){
     // Mask Operation
+
     py::enum_<MaskOperation>(m, "MaskOperation")
             .value("orOperation", MaskOperation::orOperation)
             .value("setOperation", MaskOperation::setOperation)
@@ -75,4 +76,14 @@ PYBIND11_MODULE(fault_injection_messages,m){
 
     m.def("decode_ExchangeStatus", &decode_ExchangeStatus,
           py::arg("bytes_to_decode"));
+
+    m.def("decode_state_and_check_if_is_expected", &decode_state_and_check_if_is_expected,
+          py::arg("bytes_to_decode"),
+          py::arg("expected_state"));
+
+    // Constants
+
+    m.attr("INJECTION_CONFIGURATION_ENCODING_BYTEE") = py::int_(InjectionConfiguration_REQUIRED_BYTES_FOR_ENCODING);
+    m.attr("INJECTION_ACTION_ENCODING_BYTES") = py::int_(InjectionAction_REQUIRED_BYTES_FOR_ENCODING);
+    m.attr("EXCHANGE_STATUS_ENCODING_BYTES") = py::int_(ExchangeStatus_REQUIRED_BYTES_FOR_ENCODING);
 }

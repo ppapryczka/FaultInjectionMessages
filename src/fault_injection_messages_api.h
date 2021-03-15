@@ -46,5 +46,6 @@ std::array<byte, ExchangeStatus_REQUIRED_BYTES_FOR_ENCODING> encode_ExchangeStat
 
 ExchangeStatus decode_ExchangeStatus(std::array<byte, ExchangeStatus_REQUIRED_BYTES_FOR_ENCODING>& bytes_to_decode);
 
+bool decode_state_and_check_if_is_expected(std::array<byte, ExchangeStatus_REQUIRED_BYTES_FOR_ENCODING>& bytes_to_decode, const ExchangeStatusEnum& expected_state);
 
 #endif //FAULTINJECTIONMESSAGE_FAULT_INJECTION_MESSAGES_API_H

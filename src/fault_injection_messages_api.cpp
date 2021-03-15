@@ -194,3 +194,18 @@ ExchangeStatus decode_ExchangeStatus(std::array<byte, ExchangeStatus_REQUIRED_BY
     return exchange_status;
 }
 
+bool decode_state_and_check_if_is_expected(std::array<byte, ExchangeStatus_REQUIRED_BYTES_FOR_ENCODING>& bytes_to_decode, const ExchangeStatusEnum& expected_state){
+    try {
+        ExchangeStatus state = decode_ExchangeStatus(bytes_to_decode);
+
+        if (state.status == expected_state) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (const std::runtime_error& ex){
+        // runtime error is throw when there is decode error
+        return false;
+    }
+}
+
