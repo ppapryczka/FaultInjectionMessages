@@ -157,16 +157,16 @@ flag ExchangeStatusEnum_Decode(ExchangeStatusEnum* pVal, BitStream* pBitStrm, in
 	return ret;
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1800
-void ExchangesStatus_Initialize(ExchangesStatus* pVal)
+void ExchangeStatus_Initialize(ExchangeStatus* pVal)
 {
-    *pVal = (ExchangesStatus) {
+    *pVal = (ExchangeStatus) {
     .status = waitingConf
 };
 }
 #endif
 
  
-flag ExchangesStatus_IsConstraintValid(const ExchangesStatus* pVal, int* pErrCode)
+flag ExchangeStatus_IsConstraintValid(const ExchangeStatus* pVal, int* pErrCode)
 {
     
     flag ret = TRUE;
@@ -180,11 +180,11 @@ flag ExchangesStatus_IsConstraintValid(const ExchangesStatus* pVal, int* pErrCod
 	return ret;
 }
 
-flag ExchangesStatus_Encode(const ExchangesStatus* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints)
+flag ExchangeStatus_Encode(const ExchangeStatus* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints)
 {
     flag ret = TRUE;
     
-	ret = bCheckConstraints ? ExchangesStatus_IsConstraintValid(pVal, pErrCode) : TRUE ;
+	ret = bCheckConstraints ? ExchangeStatus_IsConstraintValid(pVal, pErrCode) : TRUE ;
 	if (ret) {
 	    /*Encode status */
 	    ret = ExchangeStatusEnum_Encode(&pVal->status, pBitStrm, pErrCode, FALSE);
@@ -194,7 +194,7 @@ flag ExchangesStatus_Encode(const ExchangesStatus* pVal, BitStream* pBitStrm, in
 	return ret;
 }
 
-flag ExchangesStatus_Decode(ExchangesStatus* pVal, BitStream* pBitStrm, int* pErrCode)
+flag ExchangeStatus_Decode(ExchangeStatus* pVal, BitStream* pBitStrm, int* pErrCode)
 {
     flag ret = TRUE;
 

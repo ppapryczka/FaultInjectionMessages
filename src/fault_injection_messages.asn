@@ -9,7 +9,7 @@ BEGIN
     waitingConf, sendingActions, actionsReceived
   }
 
-  ExchangesStatus ::= SEQUENCE {
+  ExchangeStatus ::= SEQUENCE {
     status                      ExchangeStatusEnum
   }
 

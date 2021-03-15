@@ -55,16 +55,16 @@ flag ExchangeStatusEnum_IsConstraintValid(const ExchangeStatusEnum* val, int* pE
 
 typedef struct {
     ExchangeStatusEnum status;
-} ExchangesStatus;
+} ExchangeStatus;
 
-#define ExchangesStatus_REQUIRED_BYTES_FOR_ENCODING       1 
-#define ExchangesStatus_REQUIRED_BITS_FOR_ENCODING        2
-#define ExchangesStatus_REQUIRED_BYTES_FOR_ACN_ENCODING   1 
-#define ExchangesStatus_REQUIRED_BITS_FOR_ACN_ENCODING    2
-#define ExchangesStatus_REQUIRED_BYTES_FOR_XER_ENCODING   77
+#define ExchangeStatus_REQUIRED_BYTES_FOR_ENCODING       1 
+#define ExchangeStatus_REQUIRED_BITS_FOR_ENCODING        2
+#define ExchangeStatus_REQUIRED_BYTES_FOR_ACN_ENCODING   1 
+#define ExchangeStatus_REQUIRED_BITS_FOR_ACN_ENCODING    2
+#define ExchangeStatus_REQUIRED_BYTES_FOR_XER_ENCODING   75
 
-void ExchangesStatus_Initialize(ExchangesStatus* pVal);
-flag ExchangesStatus_IsConstraintValid(const ExchangesStatus* val, int* pErrCode);
+void ExchangeStatus_Initialize(ExchangeStatus* pVal);
+flag ExchangeStatus_IsConstraintValid(const ExchangeStatus* val, int* pErrCode);
 
 
 typedef asn1SccUint InjectionConfiguration_memoryInjectionActionsNum;
@@ -338,8 +338,8 @@ flag MaskOperation_Encode(const MaskOperation* val, BitStream* pBitStrm, int* pE
 flag MaskOperation_Decode(MaskOperation* pVal, BitStream* pBitStrm, int* pErrCode);
 flag ExchangeStatusEnum_Encode(const ExchangeStatusEnum* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 flag ExchangeStatusEnum_Decode(ExchangeStatusEnum* pVal, BitStream* pBitStrm, int* pErrCode);
-flag ExchangesStatus_Encode(const ExchangesStatus* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
-flag ExchangesStatus_Decode(ExchangesStatus* pVal, BitStream* pBitStrm, int* pErrCode);
+flag ExchangeStatus_Encode(const ExchangeStatus* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+flag ExchangeStatus_Decode(ExchangeStatus* pVal, BitStream* pBitStrm, int* pErrCode);
 flag InjectionConfiguration_memoryInjectionActionsNum_Encode(const InjectionConfiguration_memoryInjectionActionsNum* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 flag InjectionConfiguration_memoryInjectionActionsNum_Decode(InjectionConfiguration_memoryInjectionActionsNum* pVal, BitStream* pBitStrm, int* pErrCode);
 flag InjectionConfiguration_registerInjectionActionsNum_Encode(const InjectionConfiguration_registerInjectionActionsNum* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
