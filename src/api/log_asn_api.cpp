@@ -93,14 +93,14 @@ LogASN decode_LogASN(std::array<byte, LogASN_REQUIRED_BYTES_FOR_ENCODING>& bytes
 std::string get_log_string(const LogASN& log_asn){
     std::string log_string;
     if (log_asn.logChoice.kind == LogChoiceASN::logMsg_PRESENT){
-        log_string+="Type: MSG"         ;
+        log_string+="Type: MSG"        ;
         log_string+=" Description: ";
         log_string+=(char*)(log_asn.logDescription.arr);
     } else if (log_asn.logChoice.kind == LogChoiceASN::logIntValue_PRESENT){
         log_string+="Type: String value";
         log_string+=" Description: ";
         log_string+=(char*)(log_asn.logDescription.arr);
-        log_string+="String value:";
+        log_string+=" String value:";
         log_string+=(char*)(log_asn.logChoice.u.logStringValue.stringValue.arr);
     } else if (log_asn.logChoice.kind == LogChoiceASN::logStringValue_PRESENT){
         log_string+="Type: Int value"  ;
