@@ -96,13 +96,13 @@ std::string get_log_string(const LogASN& log_asn){
         log_string+="Type: MSG"        ;
         log_string+=" Description: ";
         log_string+=(char*)(log_asn.logDescription.arr);
-    } else if (log_asn.logChoice.kind == LogChoiceASN::logIntValue_PRESENT){
+    } else if (log_asn.logChoice.kind == LogChoiceASN::logStringValue_PRESENT){
         log_string+="Type: String value";
         log_string+=" Description: ";
         log_string+=(char*)(log_asn.logDescription.arr);
         log_string+=" String value:";
         log_string+=(char*)(log_asn.logChoice.u.logStringValue.stringValue.arr);
-    } else if (log_asn.logChoice.kind == LogChoiceASN::logStringValue_PRESENT){
+    } else if (log_asn.logChoice.kind == LogChoiceASN::logIntValue_PRESENT){
         log_string+="Type: Int value"  ;
         log_string+=" Description: ";
         log_string+=(char*)(log_asn.logDescription.arr);
